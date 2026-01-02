@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import MaterialIcons from "@react-native-vector-icons/material-icons";
-import { LightTheme as lightColors } from "../theme/color";
-import { DarkTheme as darkColors } from "../theme/color";
+import { LightTheme as lightColors } from "../../theme/color";
+import { DarkTheme as darkColors } from "../../theme/color";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function DashboardScreen() {

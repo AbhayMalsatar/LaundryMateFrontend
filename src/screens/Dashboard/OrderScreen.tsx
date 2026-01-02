@@ -1,10 +1,13 @@
 import React from 'react'
-import Container from '../components/common/Container'
+import { Text } from 'react-native'
+import Container from '../../components/common/Container'
 
 function OrderScreen() {
   return (
     <Container>
+      <Text>
       Order Screen
+      </Text>
     </Container>
   )
 }

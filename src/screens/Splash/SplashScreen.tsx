@@ -3,10 +3,10 @@ import { useContext, useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import MaterialIcons from "@react-native-vector-icons/material-icons";
 import { useNavigation } from "@react-navigation/native";
-import { AuthContext } from "../context/AuthContext";
-import Container from "../components/common/Container";
-import CustomText from "../components/common/Text";
-import SubText from "../components/common/SubText";
+import { AuthContext } from "../../context/AuthContext";
+import Container from "../../components/common/Container";
+import CustomText from "../../components/common/Text";
+import SubText from "../../components/common/SubText";
 
 export default function SplashScreen() {
   const progress = useRef(new Animated.Value(0)).current;
@@ -52,7 +52,7 @@ export default function SplashScreen() {
         <View style={styles.glow} />
         <View style={styles.logoBox}>
           <Image
-            source={require("../assets/images/logo.png")}
+            source={require("../../assets/images/logo.png")}
             style={styles.logoImage}
           />
           <View style={styles.iconOverlay}>

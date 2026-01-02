@@ -1,10 +1,11 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { useColorScheme, View, Text, StyleSheet } from "react-native";
-import { LightTheme as lightColors } from "../theme/color";
-import { DarkTheme as darkColors } from "../theme/color"; 
+import { StyleSheet, useColorScheme } from "react-native";
+import CustomerBottomTabs from "../components/BottomTabs/CustomerBottomTabs";
+import DashBoardBottomTabs from "../components/BottomTabs/DashboardBottomTabs";
 import CustomeDrawer from "../components/Drawers/CustomDrawer";
-import CustomerBottomTabs from "../components/bottomTabs/CustomerBottomTabs";
-import DashBoardBottomTabs from "../components/bottomTabs/DashboardBottomTabs";
+import { ScreenName } from "../data/enum/ScreenName";
+import { DarkTheme as darkColors, LightTheme as lightColors } from "../theme/color";
+import ManageBusinessBottomTabs from "../components/BottomTabs/ManageBusinessBottomTabs";
 
 const Drawer = createDrawerNavigator();
 
@@ -24,8 +25,9 @@ export default function DrawerNavigator() {
       }}
       drawerContent={CustomeDrawer}
     >
-      <Drawer.Screen name="Dashboard" component={DashBoardBottomTabs} />
-      <Drawer.Screen name="Customers" component={CustomerBottomTabs} />
+      <Drawer.Screen name={ScreenName.Dashboard} component={DashBoardBottomTabs} />
+      <Drawer.Screen name={ScreenName.Customers} component={CustomerBottomTabs} />
+      <Drawer.Screen name={ScreenName.ManageBusiness} component={ManageBusinessBottomTabs} />
     </Drawer.Navigator>
   );
 }

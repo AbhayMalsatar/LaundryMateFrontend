@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   Text,
@@ -10,10 +10,13 @@ import {
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { MaterialIcons } from "@expo/vector-icons";
 import { LightTheme, DarkTheme } from "../../theme/color"; // adjust path
+import { AuthContext } from "../../context/AuthContext";
+import { ScreenName } from "../../data/enum/ScreenName";
 
 export default function CustomDrawer({ navigation }: any) {
   const scheme = useColorScheme();
   const theme = scheme === "dark" ? DarkTheme : LightTheme;
+  const { logout } = useContext(AuthContext);
 
   const [openBusiness, setOpenBusiness] = useState(false);
   const [openCustomers, setOpenCustomers] = useState(false);
@@ -53,7 +56,7 @@ export default function CustomDrawer({ navigation }: any) {
           icon="dashboard"
           label="Dashboard"
           theme={theme}
-          onPress={() => navigation.navigate("Dashboard")}
+          onPress={() => navigation.navigate(ScreenName.Dashboard)}
         />
 
         <Section title="Operations" theme={theme} />
@@ -61,7 +64,7 @@ export default function CustomDrawer({ navigation }: any) {
           icon="people"
           label="Manage Customers"
           theme={theme}
-          onPress={() => navigation.navigate("Customers")}
+          onPress={() => navigation.navigate(ScreenName.Customers)}
         />
 
         <Accordion
@@ -71,9 +74,9 @@ export default function CustomDrawer({ navigation }: any) {
           theme={theme}
           onPress={() => setOpenBusiness(!openBusiness)}
         >
-          <SubItem label="Services" theme={theme} />
-          <SubItem label="Pricing" theme={theme} />
-          <SubItem label="Inventory" theme={theme} />
+          <SubItem label="Cloth Types" theme={theme}  onPress={() => navigation.navigate(ScreenName.ManageBusiness, {screen:ScreenName.ClothTypes})}/>
+          <SubItem label="Services" theme={theme} onPress={() => navigation.navigate(ScreenName.ManageBusiness, {screen:ScreenName.Services})} />
+          <SubItem label="Pricing" theme={theme} onPress={() => navigation.navigate(ScreenName.ManageBusiness, {screen:ScreenName.BasePrice})} />
         </Accordion>
 
         <Accordion
@@ -104,6 +107,7 @@ export default function CustomDrawer({ navigation }: any) {
           styles.logout,
           { backgroundColor: scheme === "dark" ? "#3f1d1d" : "#fee2e2" },
         ]}
+        onPress={logout}
       >
         <Text style={styles.logoutText}>Log Out</Text>
         <MaterialIcons name="logout" size={20} color="#dc2626" />

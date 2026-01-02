@@ -1,6 +1,7 @@
 import { View, StyleSheet, useColorScheme } from "react-native";
 import { ReactNode } from "react";
 import { LightTheme, DarkTheme } from "../../theme/color";
+import { StatusBar } from "expo-status-bar";
 
 type ContainerProps = {
   children: ReactNode;
@@ -13,6 +14,7 @@ export default function AppView({ children, style }: ContainerProps) {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }, style]}>
+      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
       {children}
     </View>
   );

@@ -233,7 +233,7 @@ export default function CustomerListScreen() {
             style={styles.iconBtn}
             onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
           >
-            <MaterialIcons name="menu" size={24} color={styles.icon.color} />
+            <MaterialIcons name="menu" size={28} color={styles.icon.color} />
           </TouchableOpacity>
         
           <Text style={styles.title}>Customers</Text>
