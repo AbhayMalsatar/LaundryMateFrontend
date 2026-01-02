@@ -10,18 +10,16 @@ import {
   Alert
 } from "react-native";
 import { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import api from "../api/axios";
+import { AuthContext } from "../../context/AuthContext";
+import api from "../../api/axios";
 import { MaterialIcons } from "@react-native-vector-icons/material-icons";
-import Input from "../components/common/Input";
-import PrimaryButton from "../components/common/PrimaryButton";
+import Input from "../../components/common/Input";
+import PrimaryButton from "../../components/common/PrimaryButton";
 import { useNavigation } from "@react-navigation/native";
-import Container from "../components/common/Container";
-import { LightTheme, DarkTheme } from "../theme/color";
-import { StatusBar } from "expo-status-bar";
-import CustomText from "../components/common/Text";
-import SubText from "../components/common/SubText";
-import { loginApi } from "../api/auth.api";
+import Container from "../../components/common/Container";
+import CustomText from "../../components/common/Text";
+import SubText from "../../components/common/SubText";
+import { loginApi } from "../../api/auth.api";
 
 export default function LoginScreen() {
   const { login } = useContext(AuthContext);
@@ -53,11 +51,10 @@ export default function LoginScreen() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <Container>
-      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
       
       {/* Header Image */}
       <ImageBackground
-        source={require("../assets/images/login/login.png")}
+        source={require("../../assets/images/login/login.png")}
         style={styles.image}
         imageStyle={{ borderRadius: 20 }}
       >

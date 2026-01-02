@@ -16,7 +16,6 @@ export const AuthContext = createContext<AuthContextType>({
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  console.log("trihggerr")
   useEffect(() => {
     const checkAuth = async () => {
       const token = await AsyncStorage.getItem("token");

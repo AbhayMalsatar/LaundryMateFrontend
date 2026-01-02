@@ -14,11 +14,11 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@react-native-vector-icons/material-icons";
 import { StatusBar } from "expo-status-bar";
-import { LightTheme, DarkTheme } from "../theme/color";
-import Container from "../components/common/Container";
-import PrimaryButton from "../components/common/PrimaryButton";
-import SubText from "../components/common/SubText";
-import { otpRequestApi, registerApi } from "../api/auth.api";
+import { LightTheme, DarkTheme } from "../../theme/color";
+import Container from "../../components/common/Container";
+import PrimaryButton from "../../components/common/PrimaryButton";
+import SubText from "../../components/common/SubText";
+import { otpRequestApi, registerApi } from "../../api/auth.api";
 import { useNavigation } from "@react-navigation/native";
 
 const OTP_LENGTH = 6;

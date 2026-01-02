@@ -15,13 +15,13 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@react-native-vector-icons/material-icons";
 import { StatusBar } from "expo-status-bar";
-import Input from "../components/common/Input";
-import PrimaryButton from "../components/common/PrimaryButton";
-import { LightTheme, DarkTheme } from "../theme/color";
-import Container from "../components/common/Container";
-import CustomText from "../components/common/Text";
-import SubText from "../components/common/SubText";
-import { otpRequestApi } from "../api/auth.api";
+import Input from "../../components/common/Input";
+import PrimaryButton from "../../components/common/PrimaryButton";
+import { LightTheme, DarkTheme } from "../../theme/color";
+import Container from "../../components/common/Container";
+import CustomText from "../../components/common/Text";
+import SubText from "../../components/common/SubText";
+import { otpRequestApi } from "../../api/auth.api";
 import React from "react";
 
 export default function RegisterScreen({ navigation }: any) {
