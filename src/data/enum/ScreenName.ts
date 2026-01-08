@@ -1,3 +1,4 @@
+
 export enum ScreenName {
     Dashboard = "Dashboard",
     Orders = "Orders",
@@ -12,5 +13,8 @@ export enum ScreenName {
     ManageBusiness="ManageBusiness",
     ClothTypes="ClothTypes",
     Services="Services",
-    BasePrice="BasePrice"
+    BasePrice="BasePrice",
+    AddEditBasePrice="AddEditBasePrice",
+    OrderList="OrderList",
+    AddEditOrder="AddEditOrder"
 }

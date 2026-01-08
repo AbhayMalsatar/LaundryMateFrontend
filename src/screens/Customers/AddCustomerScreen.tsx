@@ -13,7 +13,6 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 import { LightTheme, DarkTheme } from "../../theme/color";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Modal from 'react-native-modal';
 
 
 const AddCustomerScreen = () => {

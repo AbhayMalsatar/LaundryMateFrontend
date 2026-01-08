@@ -59,7 +59,8 @@ export default function RegisterScreen({ navigation }: any) {
         });
       }
     } catch (err: any) {
-      Alert.alert( "Error",
+      Alert.alert(
+        "Error",
         err?.response?.data?.message ||
           err.message ||
           "An error occurred during Registration."
@@ -69,130 +70,129 @@ export default function RegisterScreen({ navigation }: any) {
   };
 
   return (
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    
-    <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: colors.background }}
-      behavior={"padding"}
-      // keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 100}
-    >
-      <ScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-          backgroundColor: colors.background,
-        }}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <KeyboardAvoidingView
+        style={{ flex: 1, backgroundColor: colors.background }}
+        behavior={"padding"}
+        // keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 100}
       >
-        {/* Top Bar */}
-        <View style={styles.topBar}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <MaterialIcons
-              name="arrow-back-ios-new"
-              size={22}
-              color={colors.text}
-            />
-          </TouchableOpacity>
-          <View style={{ width: 22 }} />
-        </View>
-
-        <Container style={styles.container}>
-          <StatusBar style={scheme === "dark" ? "light" : "dark"} />
-
-          {/* Header */}
-          <View style={styles.header}>
-            <View style={styles.logoBox}>
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            backgroundColor: colors.background,
+          }}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Top Bar */}
+          <View style={styles.topBar}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <MaterialIcons
-                name="local-laundry-service"
-                size={36}
-                color="#137fec"
+                name="arrow-back-ios-new"
+                size={22}
+                color={colors.text}
               />
+            </TouchableOpacity>
+            <View style={{ width: 22 }} />
+          </View>
+
+          <Container style={styles.container}>
+            <StatusBar style={scheme === "dark" ? "light" : "dark"} />
+
+            {/* Header */}
+            <View style={styles.header}>
+              <View style={styles.logoBox}>
+                <MaterialIcons
+                  name="local-laundry-service"
+                  size={36}
+                  color="#137fec"
+                />
+              </View>
+
+              <CustomText style={styles.title}>Create Account</CustomText>
+              <SubText style={styles.subtitle}>
+                Manage your laundry business effortlessly. Start your free trial
+                today.
+              </SubText>
             </View>
 
-            <CustomText style={styles.title}>Create Account</CustomText>
-            <SubText style={styles.subtitle}>
-              Manage your laundry business effortlessly. Start your free trial
-              today.
-            </SubText>
-          </View>
-
-          {/* Form */}
-          <View style={styles.form}>
-            {/* Full Name */}
-            <CustomText style={styles.label}>User Name</CustomText>
-            <Input
-              placeholder="User Name"
-              icon="person"
-              value={username}
-              onChangeText={(text) =>
-                setFormData({ ...formData, username: text })
-              }
-            />
-
-            {/* Mobile */}
-
-            <CustomText style={styles.label}>Mobile Number</CustomText>
-            <Input
-              placeholder="000 000 0000"
-              icon="smartphone"
-              value={mobile}
-              onChangeText={(text) =>
-                setFormData({ ...formData, mobile: text })
-              }
-              keyboardType="phone-pad"
-            />
-
-            {/* Email */}
-            <CustomText style={styles.label}>Email Address</CustomText>
-            <KeyboardAvoidingView>
+            {/* Form */}
+            <View style={styles.form}>
+              {/* Full Name */}
+              <CustomText style={styles.label}>User Name</CustomText>
               <Input
-                icon="email"
-                placeholder="name@example.com"
-                keyboardType="email-address"
-                value={email}
+                placeholder="User Name"
+                icon="person"
+                value={username}
                 onChangeText={(text) =>
-                  setFormData({ ...formData, email: text })
+                  setFormData({ ...formData, username: text })
                 }
               />
-            </KeyboardAvoidingView>
 
-            {/* Password */}
-            <CustomText style={styles.label}>Password</CustomText>
+              {/* Mobile */}
 
-            <Input
-              icon="lock"
-              placeholder="Create a password"
-              secureTextEntry={visible ? false : true}
-              endIcon={visible ? "visibility" : "visibility-off"}
-              onPressEndIcon={() => setVisible(!visible)}
-              value={password}
-              onChangeText={(text) =>
-                setFormData({ ...formData, password: text })
-              }
-            />
+              <CustomText style={styles.label}>Mobile Number</CustomText>
+              <Input
+                placeholder="000 000 0000"
+                icon="smartphone"
+                value={mobile}
+                onChangeText={(text) =>
+                  setFormData({ ...formData, mobile: text })
+                }
+                keyboardType="phone-pad"
+              />
 
-            {/* Button */}
-            <PrimaryButton
-              onPress={() => {
-                handleRegister();
-              }}
-              title="Create Account"
-            />
+              {/* Email */}
+              <CustomText style={styles.label}>Email Address</CustomText>
+              <KeyboardAvoidingView>
+                <Input
+                  icon="email"
+                  placeholder="name@example.com"
+                  keyboardType="email-address"
+                  value={email}
+                  onChangeText={(text) =>
+                    setFormData({ ...formData, email: text })
+                  }
+                />
+              </KeyboardAvoidingView>
 
-            {/* Footer */}
-            <Text style={styles.footer}>
-              Already have an account?{" "}
-              <Text
-                style={styles.link}
-                onPress={() => navigation.navigate("Login")}
-              >
-                Log in
+              {/* Password */}
+              <CustomText style={styles.label}>Password</CustomText>
+
+              <Input
+                icon="lock"
+                placeholder="Create a password"
+                secureTextEntry={visible ? false : true}
+                endIcon={visible ? "visibility" : "visibility-off"}
+                onPressEndIcon={() => setVisible(!visible)}
+                value={password}
+                onChangeText={(text) =>
+                  setFormData({ ...formData, password: text })
+                }
+              />
+
+              {/* Button */}
+              <PrimaryButton
+                onPress={() => {
+                  handleRegister();
+                }}
+                title="Create Account"
+              />
+
+              {/* Footer */}
+              <Text style={styles.footer}>
+                Already have an account?{" "}
+                <Text
+                  style={styles.link}
+                  onPress={() => navigation.navigate("Login")}
+                >
+                  Log in
+                </Text>
               </Text>
-            </Text>
-          </View>
-        </Container>
-      </ScrollView>
-    </KeyboardAvoidingView>
+            </View>
+          </Container>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 }

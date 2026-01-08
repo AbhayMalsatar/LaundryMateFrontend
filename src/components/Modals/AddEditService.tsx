@@ -23,16 +23,10 @@ type Props = {
   theme: typeof LightTheme;
 };
 
-export default function AddEditClothTypes({
-  visible,
-  onClose,
-  onSave,
-  theme,
-}: Props) {
+const AddEditService = ({ visible, onClose, onSave, theme }: Props) => {
   const [name, setName] = useState("");
   const [active, setActive] = useState(true);
   const styles = ModalStyles;
-  
 
   return (
     <Modal
@@ -67,7 +61,7 @@ export default function AddEditClothTypes({
             {/* Header */}
             <View style={[styles.header, { borderBottomColor: theme.border }]}>
               <Text style={[styles.title, { color: theme.text }]}>
-                Add Cloth Type
+                Add Services
               </Text>
 
               <TouchableOpacity onPress={onClose}>
@@ -79,10 +73,10 @@ export default function AddEditClothTypes({
             <View style={styles.body}>
               {/* Input */}
               <Text style={[styles.label, { color: theme.subText }]}>
-                CLOTH TYPE NAME
+                SERVICES NAME
               </Text>
               <TextInput
-                placeholder="e.g., Silk Saree"
+                placeholder="e.g., Washing"
                 placeholderTextColor={theme.subText}
                 value={name}
                 onChangeText={setName}
@@ -134,7 +128,7 @@ export default function AddEditClothTypes({
                 onPress={() => onSave(name, active)}
               >
                 <MaterialIcons name="save" size={24} color="#fff" />
-                <Text style={styles.saveText}>Save Cloth Type</Text>
+                <Text style={styles.saveText}>Save Service</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.cancelBtn} onPress={onClose}>
@@ -148,7 +142,6 @@ export default function AddEditClothTypes({
       </TouchableWithoutFeedback>
     </Modal>
   );
-}
+};
 
-/* ================= STYLES ================= */
-
+export default AddEditService;

@@ -10,4 +10,7 @@ export type TabParmList = {
     [ScreenName.BasePrice]:undefined,
     [ScreenName.ClothTypes]:undefined,
     [ScreenName.Services]:undefined,
+    [ScreenName.AddEditBasePrice]:undefined,
+    [ScreenName.OrderList]:undefined,
+    [ScreenName.AddEditOrder]:undefined,
 }

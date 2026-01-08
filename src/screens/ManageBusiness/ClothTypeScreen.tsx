@@ -19,7 +19,6 @@ import AddEditClothTypes from "../../components/Modals/AddEditClothTypes";
 type ClothItem = {
   id: string;
   name: string;
-  image: string;
   archived?: boolean;
 };
 
@@ -27,32 +26,22 @@ const DATA: ClothItem[] = [
   {
     id: "1",
     name: "Cotton Shirt",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA3RW2WmWllNdb61dAeAQwvGPchm8HOUtgLga85LmCXaSIL5k6aMw1WFtnqEJWgNgIdhv4r8_5cVXI0STa2-_OSvdBh1YqroPtvpcXyZ79PEBeZD0gbfK8S55xlQURFlOx3DCZ_oktmZB2I1HUAjw7bVweHZcBzz29NOtikhKQiCo6zj8SneN_elgXDBlI_lLvVNGLcEHfghAV8H12ACDc3JrNpfrrJOLiYvAmc7ZKoynNdL1j_XqezyAd_1gapw5t0MXPWZ8sdthYi",
   },
   {
     id: "2",
     name: "Jeans",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCgrOm9dqNW4WrYOuASDQHhZeFxdYzJ96X78HAI6GObL9U0f688lS5cGS9zZS9_sqrfuHPneZEOTqTshDLXaOsKXErZPRj-Fc6AH05GALM3ybB6p_VevJGQ78ZYZ_77qmyNTuRPP9JGjLP31UqVMCg0IfnvauE2Z3dKwbctNlPaU7E1Qj9t71vWTmjiA-keIKvwVfMXaSHY4tBpOsDhLmAcGKe9ho-kV1fNGfpQetCieLAbgavQuy1kdJNgFv9F6DPwhxYgZo9kWUbj",
   },
   {
     id: "3",
     name: "King Size Duvet",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMYkL--mqn516o5DIzZqF95Rq-uNdaTXPX6cGTpGhw945dCdY_Ny3kkW4zSpnTag_HmDegKfHCQ9UBXnO_4VkYYtBjB9h0laZow2UALXOIxhmb4QCGtKXksqEwfvm2T3Ib5MkgPPF-sT2jl1p2F4j6qHQEiCUwHd3RtL4Mrsry_Ss3zQjKVoObOGhhCSeDAU0qP5aylpLYJRu0EYAUTTFptMORm_jBS4-pn_BzI5wY3L26WVAvDKtqeecXma0-NSV3R9-UWLW1kSeB",
   },
   {
     id: "4",
     name: "Silk Dress",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDOPu863bj5_rd_-wjq-DsqtORrUpU8UUjpBcX1LhC2273R-TAotCxeC2z23UozvOSnnqLZfUxoistXOBSPNcaYbMMpXiOmnH4Z1bNvLbS3hKbIgNHUUHC7gikF9b7zY5AZtpz_BxhZtm7uKCZkmkRgD9Y39rtK4XAvjUDeQSvHaH076VZ1Dpw4KEzAZMXywv4v5zN3H1MdjhxkSmybm5OMP3GkWEdGNFUu-OcZnm4grl9CHU-rb6C2pdokXjDNHivT9DVs1ki7u9KP",
   },
   {
     id: "5",
     name: "Wool Coat",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC8l61EkSteDNFjumjfO_-HK3ZfNVbVToEEmZF05vDlqC46Hr-Ac_uNcEYk9W92F7yFW1RtGa37ugnaMbs7r1ySVbN7YFoNSuuoKjhAcXtEwXIL7_cZnOe03eanIftRNUIUXmEutYUKewcliP2J8JjOaJSgyvFyVdcDRqTMplb98hN5-PkQeWem8HRzRhY-jofd-HvllVegpcv7HmwKunotjRD9WF7GLfNjahwOy262izbpI8CYIbhAoD5P6www8YDoURn-Y_7zHSIJ",
     archived: true,
   },
 ];
@@ -74,8 +63,11 @@ const ClothTypesScreen = () => {
         },
       ]}
     >
-      <Image source={{ uri: item.image }} style={styles.image} />
-
+      <View
+        style={[styles.iconContainer, { backgroundColor: colors.background }]}
+      >
+        <MaterialIcons name="checkroom" size={35} color={colors.primary} />
+      </View>
       <View style={styles.nameContainer}>
         <Text
           style={[
@@ -112,7 +104,14 @@ const ClothTypesScreen = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: colors.background }]}
     >
-        <AddEditClothTypes setShow={setOpenModal} show={openModal}/>
+      <AddEditClothTypes
+        onClose={() => {
+          setOpenModal(false);
+        }}
+        onSave={() => {}}
+        theme={colors}
+        visible={openModal}
+      />
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -141,7 +140,7 @@ const ClothTypesScreen = () => {
       <TouchableOpacity
         style={[styles.fab, { backgroundColor: colors.primary }]}
         onPress={() => {
-            setOpenModal(true)
+          setOpenModal(true);
         }}
       >
         <MaterialIcons name="add" size={26} color="#fff" />
@@ -252,5 +251,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
+  },
+  iconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 12,
   },
 });
