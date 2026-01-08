@@ -79,6 +79,14 @@ export default function CustomDrawer({ navigation }: any) {
           <SubItem label="Pricing" theme={theme} onPress={() => navigation.navigate(ScreenName.ManageBusiness, {screen:ScreenName.BasePrice})} />
         </Accordion>
 
+         <DrawerItem
+          icon="iron"
+          label="Manage Orders"
+          theme={theme}
+          onPress={() => navigation.navigate(ScreenName.OrderList)}
+        />
+
+
         <Accordion
           title="Reports"
           icon="bar-chart"

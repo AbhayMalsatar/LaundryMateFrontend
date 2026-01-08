@@ -11,6 +11,7 @@ import MaterialIcons from "@react-native-vector-icons/material-icons";
 import { LightTheme as lightColors } from "../../theme/color";
 import { DarkTheme as darkColors } from "../../theme/color";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { getTranslation } from "../../localization/i18n/i18n.config";
 
 export default function DashboardScreen() {
   const navigation = useNavigation();
@@ -34,7 +35,7 @@ export default function DashboardScreen() {
       <ScrollView contentContainerStyle={{ padding: 16 }}>
         {/* STATS */}
         <View style={styles.row}>
-          <StatCard title="Active Orders" value="24" colors={colors} />
+          <StatCard title={getTranslation("hello")} value="24" colors={colors} />
           <StatCard title="Today's Revenue" value="$840" colors={colors} />
         </View>
 
